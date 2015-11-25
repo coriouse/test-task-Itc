@@ -1,4 +1,4 @@
-package org.app.itc.core.model;
+package app.itc.model;
 
 /**
  * Base class for all figures
@@ -7,7 +7,7 @@ package org.app.itc.core.model;
  * @since 14.04.2014
  *
  */
-public class Figure {
+abstract public class Figure {
 
 	private String description;
 

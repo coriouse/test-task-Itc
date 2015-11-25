@@ -1,4 +1,4 @@
-package org.app.itc.core.model;
+package app.itc.model;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -18,7 +18,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
-import org.app.itc.core.exception.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -26,7 +25,10 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-public class Points implements IGetArea {
+import app.itc.core.Area;
+import app.itc.exception.ValidationException;
+
+public class Points implements Area {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Points.class);
 

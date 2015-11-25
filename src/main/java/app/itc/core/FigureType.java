@@ -1,4 +1,4 @@
-package org.app.itc.core.model;
+package app.itc.core;
 
 /**
  * Type of figure

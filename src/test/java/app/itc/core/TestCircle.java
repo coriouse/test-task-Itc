@@ -1,11 +1,11 @@
-package org.app.itc;
+package app.itc.core;
 
 import static org.junit.Assert.*;
 
-import org.app.itc.core.exception.ValidationException;
-import org.app.itc.core.model.Circle;
-import org.app.itc.core.model.IGetArea;
 import org.junit.Test;
+
+import app.itc.exception.ValidationException;
+import app.itc.model.Circle;
 
 /**
  * Test validation for Circle object
@@ -20,7 +20,7 @@ public class TestCircle {
 
 		// 1 normal
 		String testFigure1 = "CIRCLE; 4711; BUILDING 1; 7; 30; 50";
-		IGetArea square1 = new Circle();
+		Area square1 = new Circle();
 		int count = 0;
 		try {
 			square1.importCulc(testFigure1);
@@ -31,7 +31,7 @@ public class TestCircle {
 
 		// 2 id is not valid
 		String testFigure2 = "CIRCLE; 4sw711; BUILDING 1; 7; 30; 50";
-		IGetArea square2 = new Circle();
+		Area square2 = new Circle();
 		count = 0;
 		try {
 			square2.importCulc(testFigure2);
@@ -42,7 +42,7 @@ public class TestCircle {
 
 		// 3 id is empty
 		String testFigure3 = "CIRCLE;; BUILDING 1; 7; 30; 50";
-		IGetArea square3 = new Circle();
+		Area square3 = new Circle();
 		count = 0;
 		try {
 			square3.importCulc(testFigure3);
@@ -53,7 +53,7 @@ public class TestCircle {
 
 		// 4 description is epmty
 		String testFigure4 = "CIRCLE; 4711; ; 7; 30; 50";
-		IGetArea square4 = new Circle();
+		Area square4 = new Circle();
 		count = 0;
 		try {
 			square4.importCulc(testFigure4);
@@ -64,7 +64,7 @@ public class TestCircle {
 
 		// 5 description is epmty
 		String testFigure5 = "CIRCLE; 4711; BUILDING; 7; 30; 50";
-		IGetArea square5 = new Circle();
+		Area square5 = new Circle();
 		count = 0;
 		try {
 			square5.importCulc(testFigure5);

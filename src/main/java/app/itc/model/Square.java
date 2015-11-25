@@ -1,10 +1,12 @@
-package org.app.itc.core.model;
+package app.itc.model;
 
 import java.util.Arrays;
 
-import org.app.itc.core.exception.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import app.itc.core.Area;
+import app.itc.exception.ValidationException;
 
 /**
  * Class discribe Square
@@ -13,7 +15,7 @@ import org.slf4j.LoggerFactory;
  * @since 15.04.2014
  *
  */
-public class Square extends Figure implements IGetArea {
+public class Square extends Figure implements Area {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Square.class);
 

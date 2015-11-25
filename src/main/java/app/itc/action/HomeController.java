@@ -1,4 +1,4 @@
-package org.app.itc.action;
+package app.itc.action;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,10 +7,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import org.app.itc.core.exception.ValidationException;
-import org.app.itc.core.impl.FileAgregator;
-import org.app.itc.core.model.Figure;
-import org.app.itc.core.model.IGetArea;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +19,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import app.itc.core.FileAgregator;
+import app.itc.core.Area;
+import app.itc.exception.ValidationException;
+import app.itc.model.Figure;
 
 /**
  * Main controller
@@ -35,7 +37,7 @@ public class HomeController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
 	// list of figures
-	private List<IGetArea> figures = null;
+	private List<Area> figures = null;
 
 	@Autowired
 	FileAgregator fa;
@@ -97,8 +99,8 @@ public class HomeController {
 		headers.add("Content-type", "application/csv");
 		headers.add("Content-disposition", "attachment; filename=figures.csv");
 
-		List<IGetArea> csvList = new ArrayList<IGetArea>();
-		for (IGetArea ig : figures) {
+		List<Area> csvList = new ArrayList<Area>();
+		for (Area ig : figures) {
 			Figure f = (Figure) ig;
 			if (f.getName().equals(type)) {
 				csvList.add(ig);
@@ -128,8 +130,8 @@ public class HomeController {
 		headers.add("Content-type", "application/json");
 		headers.add("Content-disposition", "attachment; filename=figures.json");
 
-		List<IGetArea> jsonList = new ArrayList<IGetArea>();
-		for (IGetArea ig : figures) {
+		List<Area> jsonList = new ArrayList<Area>();
+		for (Area ig : figures) {
 			Figure f = (Figure) ig;
 			if (f.getName().equals(type)) {
 				jsonList.add(ig);

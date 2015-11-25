@@ -1,4 +1,4 @@
-package org.app.itc.core.exception;
+package app.itc.exception;
 
 /**
  * Exception for validation of objects

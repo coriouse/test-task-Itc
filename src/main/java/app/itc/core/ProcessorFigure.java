@@ -1,6 +1,5 @@
-package org.app.itc.core.impl;
+package app.itc.core;
 
-import org.app.itc.core.model.IGetArea;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProcessorFigure {
 
-	public Double calculateArea(IGetArea figure) {
+	public Double calculateArea(Area figure) {
 		return figure.calculate();
 	}
 

@@ -1,11 +1,11 @@
-package org.app.itc;
+package app.itc.core;
 
 import static org.junit.Assert.*;
 
-import org.app.itc.core.exception.ValidationException;
-import org.app.itc.core.model.IGetArea;
-import org.app.itc.core.model.Square;
 import org.junit.Test;
+
+import app.itc.exception.ValidationException;
+import app.itc.model.Square;
 
 /**
  * Test validation for Square object
@@ -19,7 +19,7 @@ public class TestSquare {
 	public void testFigureSquare() {
 		// 1 normal
 		String testFigure1 = "SQUARE;	4712;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		IGetArea square1 = new Square();
+		Area square1 = new Square();
 		int count = 0;
 		try {
 			square1.importCulc(testFigure1);
@@ -31,7 +31,7 @@ public class TestSquare {
 
 		// 2 id is not valid
 		String testFigure2 = "SQUARE;	471dsd2;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		IGetArea square2 = new Square();
+		Area square2 = new Square();
 		count = 0;
 		try {
 			square2.importCulc(testFigure2);
@@ -42,7 +42,7 @@ public class TestSquare {
 
 		// 3 id is empty
 		String testFigure3 = "SQUARE; ;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		IGetArea square3 = new Square();
+		Area square3 = new Square();
 		count = 0;
 		try {
 			square3.importCulc(testFigure3);
@@ -53,7 +53,7 @@ public class TestSquare {
 
 		// 4 description is epmty
 		String testFigure4 = "SQUARE;	4712; ;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		IGetArea square4 = new Square();
+		Area square4 = new Square();
 		count = 0;
 		try {
 			square4.importCulc(testFigure4);
@@ -64,7 +64,7 @@ public class TestSquare {
 
 		// 5 point is not valid
 		String testFigure5 = "SQUARE;	4712; BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.sr0;	h0.0";
-		IGetArea square5 = new Square();
+		Area square5 = new Square();
 		count = 0;
 		try {
 			square5.importCulc(testFigure5);
@@ -75,7 +75,7 @@ public class TestSquare {
 
 		// 6 data is not full
 		String testFigure6 = "SQUARE;	4712";
-		IGetArea square6 = new Square();
+		Area square6 = new Square();
 		count = 0;
 		try {
 			square6.importCulc(testFigure6);
@@ -86,7 +86,7 @@ public class TestSquare {
 
 		// 7 is not coordinate
 		String testFigure7 = "SQUARE;	4712;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0";
-		IGetArea square7 = new Square();
+		Area square7 = new Square();
 		count = 0;
 		try {
 			square6.importCulc(testFigure7);

@@ -1,4 +1,4 @@
-package org.app.itc.core.model;
+package app.itc.model;
 
 /**
  * Class for answer ajax and services

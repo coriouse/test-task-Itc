@@ -1,4 +1,4 @@
-package org.app.itc.core.impl;
+package app.itc.core;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -10,16 +10,15 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.app.itc.core.exception.ValidationException;
-import org.app.itc.core.model.Figure;
-import org.app.itc.core.model.FigureType;
-import org.app.itc.core.model.IGetArea;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
+
+import app.itc.exception.ValidationException;
+import app.itc.model.Figure;
 
 /**
  * Class handle of data file
@@ -31,9 +30,9 @@ import com.google.gson.Gson;
 @Service
 public class FileAgregator {
 
-	private static final Logger logger = LoggerFactory.getLogger(FileAgregator.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(FileAgregator.class);
 
-	private List<IGetArea> figures;
+	private List<Area> figures;
 
 	@Autowired
 	private TypeFactory typeFactory;
@@ -46,7 +45,7 @@ public class FileAgregator {
 	 * 
 	 */
 	public FileAgregator() {
-		figures = new LinkedList<IGetArea>();
+		figures = new LinkedList<Area>();
 	}
 
 	/**
@@ -71,7 +70,7 @@ public class FileAgregator {
 				reader.close();
 				is.close();
 			} catch (IOException ex) {
-				logger.error("Erroe of closing");
+				LOGGER.error("Erroe of closing");
 			}
 		}
 	}
@@ -97,16 +96,17 @@ public class FileAgregator {
 				putFigure(line);
 			}
 
-		} catch (FileNotFoundException ex) {
-			logger.error("File nor found");
-		} catch (IOException ex) {
-			ex.printStackTrace();
+		} catch (FileNotFoundException e) {
+			LOGGER.error("File not found ", e);
+		} catch (IOException e) {
+			LOGGER.error("Error read file ", e);
+
 		} finally {
 			try {
 				reader.close();
 				fis.close();
-			} catch (IOException ex) {
-				logger.error("Erroe of closing");
+			} catch (IOException e) {
+				LOGGER.error("Error read file ", e);
 			}
 		}
 	}
@@ -122,7 +122,7 @@ public class FileAgregator {
 	public void putFigure(String figure) throws ValidationException {
 		String type = figure.split(";")[0];
 		if (isFigure(type)) {
-			IGetArea f = typeFactory.getFigure(type);
+			Area f = typeFactory.getFigure(type);
 			f.importCulc(figure);
 			figures.add(f);
 		}
@@ -156,7 +156,7 @@ public class FileAgregator {
 	 * @since 15.04.2014
 	 * @return
 	 */
-	public List<IGetArea> getFigures() {
+	public List<Area> getFigures() {
 		return figures;
 	}
 
@@ -172,11 +172,11 @@ public class FileAgregator {
 	 * @param figures
 	 * @return
 	 */
-	public byte[] createCsvFile(List<IGetArea> figures) {
+	public byte[] createCsvFile(List<Area> figures) {
 		StringBuffer sb = null;
 		if (figures != null) {
 			sb = new StringBuffer();
-			for (IGetArea ga : figures) {
+			for (Area ga : figures) {
 				Figure f = (Figure) ga;
 				sb.append(f.getName());
 				sb.append(";");
@@ -186,7 +186,7 @@ public class FileAgregator {
 				sb.append("\r\n");
 			}
 		} else {
-			logger.error("Figures is not found");
+			LOGGER.error("Figures is not found");
 			throw new IllegalArgumentException("Figures is not found");
 		}
 		return sb.toString().getBytes();
@@ -200,13 +200,13 @@ public class FileAgregator {
 	 * @param figures
 	 * @return
 	 */
-	public byte[] createJsonFile(List<IGetArea> figures) {
+	public byte[] createJsonFile(List<Area> figures) {
 		String strJson = null;
 		if (figures != null) {
 			Gson json = new Gson();
 			strJson = json.toJson(figures);
 		} else {
-			logger.error("Figures is not found");
+			LOGGER.error("Figures is not found");
 			throw new IllegalArgumentException("Figures is not found");
 		}
 		return strJson.getBytes();

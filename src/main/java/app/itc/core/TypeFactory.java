@@ -1,10 +1,10 @@
-package org.app.itc.core.impl;
+package app.itc.core;
 
-import org.app.itc.core.model.Circle;
-import org.app.itc.core.model.IGetArea;
-import org.app.itc.core.model.Points;
-import org.app.itc.core.model.Square;
 import org.springframework.stereotype.Service;
+
+import app.itc.model.Circle;
+import app.itc.model.Points;
+import app.itc.model.Square;
 
 /**
  * Fabric of figure
@@ -23,7 +23,7 @@ public class TypeFactory {
 	 * @param figure
 	 * @return type figure object
 	 */
-	public IGetArea getFigure(String type) {
+	public Area getFigure(String type) {
 		if (type == null) {
 			return null;
 		}

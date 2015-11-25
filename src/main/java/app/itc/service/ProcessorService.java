@@ -1,9 +1,12 @@
-package org.app.itc.core.impl;
+package app.itc.service;
 
-import org.app.itc.core.exception.ValidationException;
-import org.app.itc.core.model.IGetArea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import app.itc.core.Area;
+import app.itc.core.ProcessorFigure;
+import app.itc.core.TypeFactory;
+import app.itc.exception.ValidationException;
 
 /**
  * Class need for work with services
@@ -23,7 +26,7 @@ public class ProcessorService {
 	@Autowired
 	private ProcessorFigure pf;
 
-	private IGetArea point;
+	private Area point;
 
 	public void setType(String type) {
 		this.type = type;
@@ -43,7 +46,7 @@ public class ProcessorService {
 	}
 
 	/**
-	 * Metho return result after calcilation
+	 * Method return result after calculation
 	 * 
 	 * @author ogarkov_sa
 	 * @since 17.04.2014

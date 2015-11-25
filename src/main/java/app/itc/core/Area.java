@@ -1,6 +1,6 @@
-package org.app.itc.core.model;
+package app.itc.core;
 
-import org.app.itc.core.exception.ValidationException;
+import app.itc.exception.ValidationException;
 
 /**
  * Action under figure
@@ -9,7 +9,7 @@ import org.app.itc.core.exception.ValidationException;
  * @since 14.04.2014
  *
  */
-public interface IGetArea {
+public interface Area {
 
 	/**
 	 * Import of calculation in csv
