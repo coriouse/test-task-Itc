@@ -1,6 +1,5 @@
 package org.app.itc.core.model;
 
-
 /**
  * Class for answer ajax and services
  * 
@@ -41,6 +40,6 @@ public class AjaxResponse {
 	}
 
 	public void setError(String error) {
-		this.errors = new String[]{error};
+		this.errors = new String[] { error };
 	}
 }

@@ -6,31 +6,32 @@ import org.app.itc.core.model.Points;
 import org.app.itc.core.model.Square;
 import org.springframework.stereotype.Service;
 
-
 /**
  * Fabric of figure
+ * 
  * @author ogarkov_sa
  * @since 14.04.2014
  */
 @Service
 public class TypeFactory {
-	
+
 	/**
 	 * Get of figure;
+	 * 
 	 * @author ogarkov_sa
 	 * @since 14.04.2014
 	 * @param figure
 	 * @return type figure object
 	 */
 	public IGetArea getFigure(String type) {
-		if(type == null) {
+		if (type == null) {
 			return null;
 		}
-		if("CIRCLE".equals(type)) {
+		if ("CIRCLE".equals(type)) {
 			return new Circle();
-		} else if("SQUARE".equals(type)) {		
+		} else if ("SQUARE".equals(type)) {
 			return new Square();
-		} else if("POINT".equals(type)) {
+		} else if ("POINT".equals(type)) {
 			return new Points();
 		} else {
 			return null;

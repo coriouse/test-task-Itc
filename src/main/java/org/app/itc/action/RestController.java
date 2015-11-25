@@ -21,13 +21,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class RestController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(RestController.class);
-	
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(RestController.class);
+
 	@Autowired
 	private ProcessorService ps;
+
 	/**
 	 * Method process service
+	 * 
 	 * @author ogarkov_sa
 	 * @since 17.04.2014
 	 * @param points
@@ -35,8 +37,8 @@ public class RestController {
 	 * @return
 	 */
 	@RequestMapping(value = "/service", method = RequestMethod.POST)
-	public  @ResponseBody AjaxResponse  getPoint(@RequestParam String points, @RequestParam String type) {
-		logger.info("Method process service");
+	public @ResponseBody AjaxResponse getPoint(@RequestParam String points, @RequestParam String type) {
+		LOGGER.info("Method process service");
 		ps.setType(type);
 		AjaxResponse rep = new AjaxResponse();
 		try {
@@ -44,10 +46,10 @@ public class RestController {
 			rep.setData(ps.result());
 		} catch (ValidationException e) {
 			rep.setError(e.getMessage());
-		} catch(Exception e) {
+		} catch (Exception e) {
 			rep.setError(e.getMessage());
 		}
 		return rep;
-	} 
+	}
 
 }

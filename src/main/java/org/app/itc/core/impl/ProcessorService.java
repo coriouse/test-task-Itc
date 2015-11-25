@@ -14,22 +14,24 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProcessorService {
-	
+
 	private String type;
-	
+
 	@Autowired
 	private TypeFactory typeFactory;
-	
+
 	@Autowired
 	private ProcessorFigure pf;
-	
+
 	private IGetArea point;
-	
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	/**Method get xml params
+
+	/**
+	 * Method get xml params
+	 * 
 	 * @author ogarkov_sa
 	 * @since 17.04.2014
 	 * @param xml
@@ -39,14 +41,15 @@ public class ProcessorService {
 		point = typeFactory.getFigure(type);
 		point.importCulc(xml);
 	}
-	
+
 	/**
 	 * Metho return result after calcilation
+	 * 
 	 * @author ogarkov_sa
-	 * @since 17.04.2014 
+	 * @since 17.04.2014
 	 * @return
 	 */
 	public double result() {
-		return  pf.calculateArea(point);
+		return pf.calculateArea(point);
 	}
 }

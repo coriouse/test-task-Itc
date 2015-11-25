@@ -2,11 +2,12 @@ package org.app.itc.core.exception;
 
 /**
  * Exception for validation of objects
+ * 
  * @author ogarkov_sa
  * @since 15.04.2014
  *
  */
-public class ValidationException  extends Exception{
+public class ValidationException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,4 +26,4 @@ public class ValidationException  extends Exception{
 	public ValidationException(Throwable cause) {
 		super(cause);
 	}
-}	
+}
