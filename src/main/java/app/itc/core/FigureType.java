@@ -7,5 +7,5 @@ package app.itc.core;
  * @since 14.04.2014
  */
 public enum FigureType {
-	CIRCLE, SQUARE, TRINGLE;
+	CIRCLE, SQUARE, TRINGLE, POINT;
 }

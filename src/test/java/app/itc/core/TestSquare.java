@@ -22,7 +22,7 @@ public class TestSquare {
 		Area square1 = new Square();
 		int count = 0;
 		try {
-			square1.importCulc(testFigure1);
+			square1.takeFigure(testFigure1);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -34,7 +34,7 @@ public class TestSquare {
 		Area square2 = new Square();
 		count = 0;
 		try {
-			square2.importCulc(testFigure2);
+			square2.takeFigure(testFigure2);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -45,7 +45,7 @@ public class TestSquare {
 		Area square3 = new Square();
 		count = 0;
 		try {
-			square3.importCulc(testFigure3);
+			square3.takeFigure(testFigure3);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -56,7 +56,7 @@ public class TestSquare {
 		Area square4 = new Square();
 		count = 0;
 		try {
-			square4.importCulc(testFigure4);
+			square4.takeFigure(testFigure4);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -67,7 +67,7 @@ public class TestSquare {
 		Area square5 = new Square();
 		count = 0;
 		try {
-			square5.importCulc(testFigure5);
+			square5.takeFigure(testFigure5);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -78,7 +78,7 @@ public class TestSquare {
 		Area square6 = new Square();
 		count = 0;
 		try {
-			square6.importCulc(testFigure6);
+			square6.takeFigure(testFigure6);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -89,7 +89,7 @@ public class TestSquare {
 		Area square7 = new Square();
 		count = 0;
 		try {
-			square6.importCulc(testFigure7);
+			square6.takeFigure(testFigure7);
 		} catch (ValidationException e) {
 			count++;
 		}

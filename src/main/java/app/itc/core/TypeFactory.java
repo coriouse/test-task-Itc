@@ -1,5 +1,6 @@
 package app.itc.core;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import app.itc.model.Circle;
@@ -12,7 +13,7 @@ import app.itc.model.Square;
  * @author ogarkov_sa
  * @since 14.04.2014
  */
-@Service
+@Component
 public class TypeFactory {
 
 	/**
@@ -23,17 +24,16 @@ public class TypeFactory {
 	 * @param figure
 	 * @return type figure object
 	 */
-	public Area getFigure(String type) {
-		if (type == null) {
-			return null;
-		}
-		if ("CIRCLE".equals(type)) {
+	public Area getFigure(FigureType type) {
+
+		switch (type) {
+		case CIRCLE:
 			return new Circle();
-		} else if ("SQUARE".equals(type)) {
+		case SQUARE:
 			return new Square();
-		} else if ("POINT".equals(type)) {
+		case POINT:
 			return new Points();
-		} else {
+		default:
 			return null;
 		}
 	}

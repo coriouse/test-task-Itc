@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import app.itc.exception.ValidationException;
+import app.itc.core.FigureType;
 import app.itc.model.AjaxResponse;
-import app.itc.service.ProcessorService;
+import app.itc.service.PointCalculatorService;
 
 /**
  * Web service restfull
@@ -21,12 +21,12 @@ import app.itc.service.ProcessorService;
  *
  */
 @Controller
-public class RestController {
+public class PointController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RestController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(PointController.class);
 
 	@Autowired
-	private ProcessorService ps;
+	private PointCalculatorService pointCalculatorService;
 
 	/**
 	 * Method process service
@@ -38,19 +38,9 @@ public class RestController {
 	 * @return
 	 */
 	@RequestMapping(value = "/service", method = RequestMethod.POST)
-	public @ResponseBody AjaxResponse getPoint(@RequestParam String points, @RequestParam String type) {
+	public @ResponseBody AjaxResponse calculateAreaPoint(@RequestParam String points, @RequestParam FigureType type) {
 		LOGGER.info("Method process service");
-		ps.setType(type);
-		AjaxResponse rep = new AjaxResponse();
-		try {
-			ps.putService(points);
-			rep.setData(ps.result());
-		} catch (ValidationException e) {
-			rep.setError(e.getMessage());
-		} catch (Exception e) {
-			rep.setError(e.getMessage());
-		}
-		return rep;
+		return pointCalculatorService.calculatePointArea(type, points);
 	}
 
 }

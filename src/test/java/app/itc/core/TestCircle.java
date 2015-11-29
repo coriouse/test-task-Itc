@@ -23,7 +23,7 @@ public class TestCircle {
 		Area square1 = new Circle();
 		int count = 0;
 		try {
-			square1.importCulc(testFigure1);
+			square1.takeFigure(testFigure1);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -34,7 +34,7 @@ public class TestCircle {
 		Area square2 = new Circle();
 		count = 0;
 		try {
-			square2.importCulc(testFigure2);
+			square2.takeFigure(testFigure2);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -45,7 +45,7 @@ public class TestCircle {
 		Area square3 = new Circle();
 		count = 0;
 		try {
-			square3.importCulc(testFigure3);
+			square3.takeFigure(testFigure3);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -56,7 +56,7 @@ public class TestCircle {
 		Area square4 = new Circle();
 		count = 0;
 		try {
-			square4.importCulc(testFigure4);
+			square4.takeFigure(testFigure4);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -67,7 +67,7 @@ public class TestCircle {
 		Area square5 = new Circle();
 		count = 0;
 		try {
-			square5.importCulc(testFigure5);
+			square5.takeFigure(testFigure5);
 		} catch (ValidationException e) {
 			count++;
 		}

@@ -1,5 +1,6 @@
 package app.itc.core;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,8 +10,8 @@ import org.springframework.stereotype.Service;
  * @since 16.04.2014
  *
  */
-@Service
-public class ProcessorFigure {
+@Component
+public class Calculator {
 
 	public Double calculateArea(Area figure) {
 		return figure.calculate();

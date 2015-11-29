@@ -7,7 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Class for handle of exception
  * 
- * @since 16.04.2014
  * @author ogarkov_sa
  *
  */

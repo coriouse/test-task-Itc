@@ -55,7 +55,7 @@ public class Square extends Figure implements Area {
 	}
 
 	@Override
-	public void importCulc(String figure) throws ValidationException {
+	public void takeFigure(String figure) throws ValidationException {
 		this.init(figure);
 		this.fill();
 	}
