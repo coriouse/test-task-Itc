@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.itc.core.CalculatorArea;
-import app.itc.core.Calculator;
 import app.itc.core.CalculatorType;
 import app.itc.core.CalculatorFactory;
 import app.itc.exception.ValidationException;

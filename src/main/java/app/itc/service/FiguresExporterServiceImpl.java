@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 
 import app.itc.core.CalculatorArea;
-import app.itc.core.Calculator;
 import app.itc.core.FiguresHolder;
 import app.itc.exception.ValidationException;
 import app.itc.model.Figure;
