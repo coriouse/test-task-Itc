@@ -23,16 +23,6 @@ public class FiguresExporterServiceImpl implements FiguresExporterService {
 	@Autowired
 	private FiguresHolder figuresHolder;
 
-
-	/**
-	 * Method return CSV file
-	 * 
-	 * @author ogarkov_sa
-	 * @since 16.04.2014
-	 * @param figures
-	 * @return
-	 * @throws ValidationException
-	 */
 	@Override
 	public byte[] exportToCsvFile(String type) throws ValidationException {
 
@@ -63,15 +53,6 @@ public class FiguresExporterServiceImpl implements FiguresExporterService {
 		return sb.toString().getBytes();
 	}
 
-	/**
-	 * Method return json file
-	 * 
-	 * @author ogarkov_sa
-	 * @since 16.04.2014
-	 * @param figures
-	 * @return
-	 * @throws ValidationException
-	 */
 	public byte[] exportToJsonFile(String type) throws ValidationException {
 
 		List<CalculatorArea> jsonList = new ArrayList<CalculatorArea>();

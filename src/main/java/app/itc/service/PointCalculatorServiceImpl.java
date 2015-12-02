@@ -10,7 +10,7 @@ import app.itc.exception.ValidationException;
 import app.itc.model.AjaxResponse;
 
 /**
- * Class need for work with services
+ * 
  * 
  * @author ogarkov_sa
  * @since 17.04.2014

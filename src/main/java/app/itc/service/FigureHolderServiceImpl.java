@@ -54,9 +54,8 @@ public class FigureHolderServiceImpl implements FigureHolderService {
 				while ((line = reader.readLine()) != null) {
 					putFigure(line);
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (IOException e) {				
+				
 			}
 		} finally {
 			try {
