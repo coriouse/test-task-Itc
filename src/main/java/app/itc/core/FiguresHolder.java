@@ -12,13 +12,13 @@ public class FiguresHolder {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(FiguresHolder.class);
 
-	private static final List<Area> FIGURES = new ArrayList<Area>();
+	private static final List<CalculatorArea> FIGURES = new ArrayList<CalculatorArea>();
 
-	public List<Area> getFigures() {
+	public List<CalculatorArea> getFigures() {
 		return FIGURES;
 	}
 
-	public void addFigure(Area area) {
+	public void addFigure(CalculatorArea area) {
 		FIGURES.add(area);
 
 	}

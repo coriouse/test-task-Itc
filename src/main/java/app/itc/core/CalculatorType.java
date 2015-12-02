@@ -6,6 +6,6 @@ package app.itc.core;
  * @author ogarkov_sa
  * @since 14.04.2014
  */
-public enum FigureType {
+public enum CalculatorType {
 	CIRCLE, SQUARE, TRINGLE, POINT;
 }

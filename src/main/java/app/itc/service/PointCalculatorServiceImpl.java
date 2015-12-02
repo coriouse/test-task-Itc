@@ -3,10 +3,10 @@ package app.itc.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.itc.core.Area;
+import app.itc.core.CalculatorArea;
 import app.itc.core.Calculator;
-import app.itc.core.FigureType;
-import app.itc.core.TypeFactory;
+import app.itc.core.CalculatorType;
+import app.itc.core.CalculatorFactory;
 import app.itc.exception.ValidationException;
 import app.itc.model.AjaxResponse;
 
@@ -21,18 +21,15 @@ import app.itc.model.AjaxResponse;
 public class PointCalculatorServiceImpl implements PointCalculatorService {
 
 	@Autowired
-	private TypeFactory typeFactory;
-
-	@Autowired
-	private Calculator calculator;
+	private CalculatorFactory calculatorFactory;
 
 	@Override
-	public AjaxResponse calculatePointArea(FigureType type, String points) {
-		Area point = typeFactory.getFigure(type);
+	public AjaxResponse calculatePointArea(CalculatorType type, String points) {
+		CalculatorArea point = calculatorFactory.getCalculator(type);
 		AjaxResponse ajaxResponse = new AjaxResponse();
 		try {
-			point.takeFigure(points);
-			ajaxResponse.setData(calculator.calculateArea(point));
+			point.put(points);
+			ajaxResponse.setData(point.calculate());
 		} catch (ValidationException e) {
 			ajaxResponse.setError(e.getMessage());
 		} catch (Exception e) {

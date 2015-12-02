@@ -1,10 +1,10 @@
 package app.itc.service;
 
-import app.itc.core.FigureType;
+import app.itc.core.CalculatorType;
 import app.itc.model.AjaxResponse;
 
 public interface PointCalculatorService {
 
-	public AjaxResponse calculatePointArea(FigureType type, String points);
+	public AjaxResponse calculatePointArea(CalculatorType type, String points);
 
 }

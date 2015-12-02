@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import app.itc.core.FigureType;
+import app.itc.core.CalculatorType;
 import app.itc.exception.ValidationException;
 import app.itc.service.FigureHolderService;
 
@@ -47,8 +47,8 @@ public class UploadController {
 		return "list";
 	}
 
-	private List<FigureType> referenceListTypeFigures() {
-		return Arrays.asList(FigureType.values());
+	private List<CalculatorType> referenceListTypeFigures() {
+		return Arrays.asList(CalculatorType.values());
 	}
 
 }

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Component
 public class Calculator {
 
-	public Double calculateArea(Area figure) {
+	public Double calculateArea(CalculatorArea figure) {
 		return figure.calculate();
 	}
 

@@ -11,10 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.itc.core.Area;
-import app.itc.core.FigureType;
+import app.itc.core.CalculatorArea;
+import app.itc.core.CalculatorType;
 import app.itc.core.FiguresHolder;
-import app.itc.core.TypeFactory;
+import app.itc.core.CalculatorFactory;
 import app.itc.exception.ValidationException;
 
 @Service
@@ -26,10 +26,10 @@ public class FigureHolderServiceImpl implements FigureHolderService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FigureHolderServiceImpl.class);
 
 	@Autowired
-	private TypeFactory typeFactory;
+	private CalculatorFactory calculatorFactory;
 
 	@Override
-	public List<Area> getFigures() {
+	public List<CalculatorArea> getFigures() {
 		return figuresHolder.getFigures();
 	}
 
@@ -71,8 +71,8 @@ public class FigureHolderServiceImpl implements FigureHolderService {
 	private void putFigure(String figure) throws ValidationException {
 		String type = figure.split(";")[0];
 		if (isFigure(type)) {
-			Area f = typeFactory.getFigure(FigureType.valueOf(type));
-			f.takeFigure(figure);
+			CalculatorArea f = calculatorFactory.getCalculator(CalculatorType.valueOf(type));
+			f.put(figure);
 			figuresHolder.addFigure(f);
 		}
 	}
@@ -87,7 +87,7 @@ public class FigureHolderServiceImpl implements FigureHolderService {
 	 */
 	private Boolean isFigure(String figure) {
 		try {
-			FigureType.valueOf(figure);
+			CalculatorType.valueOf(figure);
 		} catch (IllegalArgumentException e) {
 			return false;
 		}

@@ -17,9 +17,9 @@ import org.xml.sax.SAXParseException;
 
 import app.itc.exception.ValidationException;
 
-public class PointValidator {
+public class FieldsValidator {
 
-	public static void validate(String xml) throws ValidationException {
+	public static void validatePointFields(String xml) throws ValidationException {
 
 		Source xmlFile = null;
 		try {

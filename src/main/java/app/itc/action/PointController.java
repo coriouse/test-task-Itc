@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import app.itc.core.FigureType;
+import app.itc.core.CalculatorType;
 import app.itc.model.AjaxResponse;
 import app.itc.service.PointCalculatorService;
 
@@ -38,7 +38,7 @@ public class PointController {
 	 * @return
 	 */
 	@RequestMapping(value = "/service", method = RequestMethod.POST)
-	public @ResponseBody AjaxResponse calculateAreaPoint(@RequestParam String points, @RequestParam FigureType type) {
+	public @ResponseBody AjaxResponse calculateAreaPoint(@RequestParam String points, @RequestParam CalculatorType type) {
 		LOGGER.info("Method process service");
 		return pointCalculatorService.calculatePointArea(type, points);
 	}

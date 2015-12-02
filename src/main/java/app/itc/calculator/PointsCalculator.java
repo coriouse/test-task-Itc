@@ -1,4 +1,4 @@
-package app.itc.model;
+package app.itc.calculator;
 
 import java.io.ByteArrayInputStream;
 import javax.xml.parsers.DocumentBuilder;
@@ -12,13 +12,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
-import app.itc.core.Area;
+import app.itc.core.CalculatorArea;
 import app.itc.exception.ValidationException;
-import app.itc.validator.PointValidator;
+import app.itc.validator.FieldsValidator;
 
-public class Points implements Area {
+public class PointsCalculator implements CalculatorArea {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Points.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(PointsCalculator.class);
 
 	private double p1x;
 	private double p1y;
@@ -31,8 +31,8 @@ public class Points implements Area {
 
 
 	@Override
-	public void takeFigure(String xml) throws ValidationException {
-		PointValidator.validate(xml);
+	public void put(String xml) throws ValidationException {
+		FieldsValidator.validatePointFields(xml);
 			try {
 				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 				factory.setNamespaceAware(true);

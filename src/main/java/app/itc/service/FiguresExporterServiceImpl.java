@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
-import app.itc.core.Area;
+import app.itc.core.CalculatorArea;
 import app.itc.core.Calculator;
 import app.itc.core.FiguresHolder;
 import app.itc.exception.ValidationException;
@@ -24,8 +24,6 @@ public class FiguresExporterServiceImpl implements FiguresExporterService {
 	@Autowired
 	private FiguresHolder figuresHolder;
 
-	@Autowired
-	private Calculator calculator;
 
 	/**
 	 * Method return CSV file
@@ -39,8 +37,8 @@ public class FiguresExporterServiceImpl implements FiguresExporterService {
 	@Override
 	public byte[] exportToCsvFile(String type) throws ValidationException {
 
-		List<Area> csvList = new ArrayList<Area>();
-		for (Area ig : figuresHolder.getFigures()) {
+		List<CalculatorArea> csvList = new ArrayList<CalculatorArea>();
+		for (CalculatorArea ig : figuresHolder.getFigures()) {
 			Figure f = (Figure) ig;
 			if (f.getName().equals(type)) {
 				csvList.add(ig);
@@ -53,13 +51,13 @@ public class FiguresExporterServiceImpl implements FiguresExporterService {
 		StringBuffer sb = null;
 		if (csvList != null) {
 			sb = new StringBuffer();
-			for (Area ga : csvList) {
+			for (CalculatorArea ga : csvList) {
 				Figure f = (Figure) ga;
 				sb.append(f.getName());
 				sb.append(";");
 				sb.append(f.getId());
 				sb.append(";");
-				sb.append(calculator.calculateArea(ga));
+				sb.append(ga.calculate());
 				sb.append("\r\n");
 			}
 		}
@@ -77,8 +75,8 @@ public class FiguresExporterServiceImpl implements FiguresExporterService {
 	 */
 	public byte[] exportToJsonFile(String type) throws ValidationException {
 
-		List<Area> jsonList = new ArrayList<Area>();
-		for (Area ig : figuresHolder.getFigures()) {
+		List<CalculatorArea> jsonList = new ArrayList<CalculatorArea>();
+		for (CalculatorArea ig : figuresHolder.getFigures()) {
 			Figure f = (Figure) ig;
 			if (f.getName().equals(type)) {
 				jsonList.add(ig);

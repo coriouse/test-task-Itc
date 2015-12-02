@@ -9,9 +9,9 @@ import app.itc.exception.ValidationException;
  * @since 14.04.2014
  *
  */
-public interface Area {
+public interface CalculatorArea {
 
-	public void takeFigure(String figure) throws ValidationException;
+	public void put(String figure) throws ValidationException;
 
 	public Double calculate();
 

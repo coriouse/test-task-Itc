@@ -15,9 +15,9 @@ abstract public class Figure {
 
 	private String name;
 
-	private String[] arr;
+	private static String[] arr;
 
-	public void init(String params) {
+	public void fill(String params) {
 		if (params != null) {
 			arr = params.split(";");
 		}
@@ -51,11 +51,11 @@ abstract public class Figure {
 		return arr;
 	}
 
-	public Integer getArrNumberElement(Integer index) throws NumberFormatException {
+	public static Integer getArrNumberElement(Integer index) throws NumberFormatException {
 		return Integer.valueOf(arr[index].trim());
 	}
 
-	public String getArrStringElement(Integer index) {
+	public static String getArrStringElement(Integer index) {
 		return arr[index].trim();
 	}
 }

@@ -1,12 +1,13 @@
-package app.itc.model;
+package app.itc.calculator;
 
 import java.util.Arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import app.itc.core.Area;
+import app.itc.core.CalculatorArea;
 import app.itc.exception.ValidationException;
+import app.itc.model.Figure;
 
 /**
  * Class discribe Square
@@ -15,9 +16,9 @@ import app.itc.exception.ValidationException;
  * @since 15.04.2014
  *
  */
-public class Square extends Figure implements Area {
+public class SquareCalculator extends Figure implements CalculatorArea {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(Square.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SquareCalculator.class);
 
 	private float[] coordinates = new float[8];
 
@@ -55,8 +56,8 @@ public class Square extends Figure implements Area {
 	}
 
 	@Override
-	public void takeFigure(String figure) throws ValidationException {
-		this.init(figure);
+	public void put(String figure) throws ValidationException {
+		this.fill(figure);
 		this.fill();
 	}
 

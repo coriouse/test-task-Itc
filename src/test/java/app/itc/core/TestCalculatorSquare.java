@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import app.itc.calculator.SquareCalculator;
 import app.itc.exception.ValidationException;
-import app.itc.model.Square;
 
 /**
  * Test validation for Square object
@@ -13,16 +13,16 @@ import app.itc.model.Square;
  * @author ogarkov_sa
  * @since 15.04.2014
  */
-public class TestSquare {
+public class TestCalculatorSquare {
 
 	@Test
 	public void testFigureSquare() {
 		// 1 normal
 		String testFigure1 = "SQUARE;	4712;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		Area square1 = new Square();
+		CalculatorArea square1 = new SquareCalculator();
 		int count = 0;
 		try {
-			square1.takeFigure(testFigure1);
+			square1.put(testFigure1);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -31,10 +31,10 @@ public class TestSquare {
 
 		// 2 id is not valid
 		String testFigure2 = "SQUARE;	471dsd2;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		Area square2 = new Square();
+		CalculatorArea square2 = new SquareCalculator();
 		count = 0;
 		try {
-			square2.takeFigure(testFigure2);
+			square2.put(testFigure2);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -42,10 +42,10 @@ public class TestSquare {
 
 		// 3 id is empty
 		String testFigure3 = "SQUARE; ;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		Area square3 = new Square();
+		CalculatorArea square3 = new SquareCalculator();
 		count = 0;
 		try {
-			square3.takeFigure(testFigure3);
+			square3.put(testFigure3);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -53,10 +53,10 @@ public class TestSquare {
 
 		// 4 description is epmty
 		String testFigure4 = "SQUARE;	4712; ;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0;	0.0";
-		Area square4 = new Square();
+		CalculatorArea square4 = new SquareCalculator();
 		count = 0;
 		try {
-			square4.takeFigure(testFigure4);
+			square4.put(testFigure4);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -64,10 +64,10 @@ public class TestSquare {
 
 		// 5 point is not valid
 		String testFigure5 = "SQUARE;	4712; BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.sr0;	h0.0";
-		Area square5 = new Square();
+		CalculatorArea square5 = new SquareCalculator();
 		count = 0;
 		try {
-			square5.takeFigure(testFigure5);
+			square5.put(testFigure5);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -75,10 +75,10 @@ public class TestSquare {
 
 		// 6 data is not full
 		String testFigure6 = "SQUARE;	4712";
-		Area square6 = new Square();
+		CalculatorArea square6 = new SquareCalculator();
 		count = 0;
 		try {
-			square6.takeFigure(testFigure6);
+			square6.put(testFigure6);
 		} catch (ValidationException e) {
 			count++;
 		}
@@ -86,10 +86,10 @@ public class TestSquare {
 
 		// 7 is not coordinate
 		String testFigure7 = "SQUARE;	4712;	BUILDING 3;	0.0;	0.0;	0.0;	10.0;	10.0;	10.0;	10.0";
-		Area square7 = new Square();
+		CalculatorArea square7 = new SquareCalculator();
 		count = 0;
 		try {
-			square6.takeFigure(testFigure7);
+			square6.put(testFigure7);
 		} catch (ValidationException e) {
 			count++;
 		}

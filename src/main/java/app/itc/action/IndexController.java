@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import app.itc.core.Area;
+import app.itc.core.CalculatorArea;
 import app.itc.exception.ValidationException;
 import app.itc.model.Figure;
 import app.itc.service.FigureHolderService;
