@@ -46,6 +46,7 @@ public class FigureHolderServiceImpl implements FigureHolderService {
 	}
 
 	private void readFileFromPage(InputStream is) throws ValidationException {
+
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new InputStreamReader(is));
@@ -54,8 +55,8 @@ public class FigureHolderServiceImpl implements FigureHolderService {
 				while ((line = reader.readLine()) != null) {
 					putFigure(line);
 				}
-			} catch (IOException e) {				
-				
+			} catch (IOException e) {
+
 			}
 		} finally {
 			try {
@@ -67,30 +68,18 @@ public class FigureHolderServiceImpl implements FigureHolderService {
 		}
 	}
 
-	private void putFigure(String figure) throws ValidationException {
-		String type = figure.split(";")[0];
-		if (isFigure(type)) {
-			CalculatorArea f = calculatorFactory.getCalculator(CalculatorType.valueOf(type));
-			f.put(figure);
-			figuresHolder.addFigure(f);
-		}
+	private void putFigure(String params) throws ValidationException {
+		CalculatorArea f = calculatorFactory.getCalculator(getCalculatorType(params));
+		f.put(params);
+		figuresHolder.addFigure(f);
 	}
 
-	/**
-	 * Method check type of figure
-	 * 
-	 * @author ogarkov_sa
-	 * @since 15.04.2014
-	 * @param figure
-	 * @return
-	 */
-	private Boolean isFigure(String figure) {
+	private CalculatorType getCalculatorType(String params) throws ValidationException {
+		String type = params.split(";")[0];
 		try {
-			CalculatorType.valueOf(figure);
+			return CalculatorType.valueOf(type);
 		} catch (IllegalArgumentException e) {
-			return false;
+			throw new ValidationException(String.format("Unknow type figure %", type));
 		}
-		return true;
 	}
-
 }
