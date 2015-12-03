@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import app.itc.core.CalculatorArea;
 import app.itc.exception.ValidationException;
 import app.itc.model.Figure;
+import app.itc.util.FigureUtil;
 
 /**
  * Class discribe Circle
@@ -18,7 +19,7 @@ import app.itc.model.Figure;
  */
 public class CircleCalculator extends Figure implements CalculatorArea {
 
-	private static final Logger logger = LoggerFactory.getLogger(CircleCalculator.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CircleCalculator.class);
 
 	private Integer radius;
 
@@ -34,27 +35,28 @@ public class CircleCalculator extends Figure implements CalculatorArea {
 	 * @since 14.04.2014 example CIRCLE; 4711; BUILDING 1; 7; 30; 50
 	 */
 	private void fill() throws ValidationException {
-		logger.info("fill object Circle");
+		LOGGER.debug("Fill object Circle");
 		try {
-			setName(getArrStringElement(0));
-			setId(getArrNumberElement(1));
-			setDescription(getArrStringElement(2));
-			radius = getArrNumberElement(3);
-			easting = getArrNumberElement(4);
-			northing = getArrNumberElement(5);
+			setName(FigureUtil.getString(getParsedParams(), 0));
+			setId(FigureUtil.getInteger(getParsedParams(), 1));
+			setDescription(FigureUtil.getString(getParsedParams(), 2));
+			radius = FigureUtil.getInteger(getParsedParams(), 3);
+			easting = FigureUtil.getInteger(getParsedParams(), 4);
+			northing = FigureUtil.getInteger(getParsedParams(), 5);
 		} catch (NumberFormatException e) {
-			logger.error("Problem with format : " + Arrays.toString(getArr()));
-			throw new ValidationException(
-					"Problem with format : " + Arrays.toString(getArr()) + ", " + e.getClass().getName());
+			LOGGER.error(String.format("Illegal argument : %s", Arrays.toString(getParsedParams())));
+			throw new ValidationException(String.format("Illegal argument : %s", Arrays.toString(getParsedParams())),
+					e);
 		} catch (ArrayIndexOutOfBoundsException e) {
-			logger.error("Problem with format : " + Arrays.toString(getArr()) + ", " + e.getClass().getName());
-			throw new ValidationException("Problem with format  : " + Arrays.toString(getArr()));
+			LOGGER.error(String.format("Invalid format %s figure Circle : ", Arrays.toString(getParsedParams())));
+			throw new ValidationException(
+					String.format("Invalid format %s figure Circle : ", Arrays.toString(getParsedParams())));
 		}
 	}
 
 	@Override
 	public void put(String figure) throws ValidationException {
-		this.fill(figure);
+		this.parse(figure);
 		this.fill();
 	}
 

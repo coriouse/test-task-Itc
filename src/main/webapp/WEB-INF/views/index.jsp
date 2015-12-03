@@ -12,7 +12,7 @@
 	Upload! Main page!  
 </h3>
 
-<p><a href="/itc/testService">Test Web Service</a></p>
+<p><a href="/itc/service">Test Web Service</a></p>
 
 <br>
 

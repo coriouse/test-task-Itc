@@ -9,18 +9,22 @@ package app.itc.model;
  */
 abstract public class Figure {
 
-	private String description;
-
 	private Integer id;
 
 	private String name;
+	
+	private String description;
 
-	private static String[] arr;
+	private static String[] parsedParams;
 
-	public void fill(String params) {
-		if (params != null) {
-			arr = params.split(";");
+	public void parse(String textParams) {
+		if (textParams != null) {
+			parsedParams = textParams.split(";");
 		}
+	}
+
+	public String[] getParsedParams() {
+		return parsedParams;
 	}
 
 	public Integer getId() {
@@ -47,15 +51,4 @@ abstract public class Figure {
 		this.name = name;
 	}
 
-	public String[] getArr() {
-		return arr;
-	}
-
-	public static Integer getArrNumberElement(Integer index) throws NumberFormatException {
-		return Integer.valueOf(arr[index].trim());
-	}
-
-	public static String getArrStringElement(Integer index) {
-		return arr[index].trim();
-	}
 }

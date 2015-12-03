@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import app.itc.core.CalculatorArea;
 import app.itc.exception.ValidationException;
 import app.itc.model.Figure;
+import app.itc.util.FigureUtil;
 
 /**
  * Class discribe Square
@@ -31,23 +32,26 @@ public class SquareCalculator extends Figure implements CalculatorArea {
 	 */
 	private void fill() throws ValidationException {
 		try {
-			setName(getArrStringElement(0));
-			setId(getArrNumberElement(1));
-			setDescription(getArrStringElement(2));
+			setName(FigureUtil.getString(getParsedParams(), 0));
+			setId(FigureUtil.getInteger(getParsedParams(), 1));
+			setDescription(FigureUtil.getString(getParsedParams(), 2));
 			int count = 0;
-			for (int j = 3; j < getArr().length; j++) {
-				coordinates[count] = Float.valueOf(getArr()[j].trim());
+			for (int j = 3; j < getParsedParams().length; j++) {
+				coordinates[count] = FigureUtil.getFloat(getParsedParams(), j);
 				count++;
 			}
 			if (count != 8) {
-				throw new ValidationException("Problem with format is not coordinate : " + Arrays.toString(getArr()));
+				throw new ValidationException(
+						String.format("Invalid format %s figure Square : ", Arrays.toString(getParsedParams())));
 			}
 		} catch (NumberFormatException e) {
-			LOGGER.error("Problem with format : " + Arrays.toString(getArr()));
-			throw new ValidationException("Problem with format : " + Arrays.toString(getArr()));
+			LOGGER.error(String.format("Invalid format %s figure Square : ", Arrays.toString(getParsedParams())));
+			throw new ValidationException(
+					String.format("Invalid format %s figure Square : ", Arrays.toString(getParsedParams())));
 		} catch (ArrayIndexOutOfBoundsException e) {
-			LOGGER.error("Problem with format : " + Arrays.toString(getArr()));
-			throw new ValidationException("Problem with format  : " + Arrays.toString(getArr()));
+			LOGGER.error(String.format("Invalid format %s figure Square : ", Arrays.toString(getParsedParams())));
+			throw new ValidationException(
+					String.format("Invalid format %s figure Square : ", Arrays.toString(getParsedParams())));
 		}
 	}
 
@@ -57,7 +61,7 @@ public class SquareCalculator extends Figure implements CalculatorArea {
 
 	@Override
 	public void put(String figure) throws ValidationException {
-		this.fill(figure);
+		this.parse(figure);
 		this.fill();
 	}
 

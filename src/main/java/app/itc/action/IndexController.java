@@ -47,10 +47,10 @@ public class IndexController {
 	 * 
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String refresh(Locale locale, Model model) {
 		LOGGER.info("Start main page");
 		figureHolderService.clean();
-		return "home";
+		return "index";
 	}
 
 	/**
@@ -60,9 +60,9 @@ public class IndexController {
 	 * @since 17.04.2014
 	 * 
 	 */
-	@RequestMapping(value = "/testService", method = RequestMethod.GET)
-	public String serviceTest(Locale locale, Model model) {
-		LOGGER.info("Page for test service");
+	@RequestMapping(value = "/service", method = RequestMethod.GET)
+	public String service(Locale locale, Model model) {
+		LOGGER.info("Open page for test service");
 		return "service";
 	}
 }

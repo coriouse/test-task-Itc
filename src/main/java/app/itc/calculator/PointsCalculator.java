@@ -1,6 +1,8 @@
 package app.itc.calculator;
 
 import java.io.ByteArrayInputStream;
+import java.util.Arrays;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -61,7 +63,8 @@ public class PointsCalculator implements CalculatorArea {
 				this.p2z = Double.valueOf((String) expr.evaluate(doc, XPathConstants.STRING));
 	
 			} catch (Exception e) {
-				LOGGER.error("xml parse points", e);
+				LOGGER.error("Erro xml parse points:", e);
+				throw new ValidationException(e);
 			}
 	
 	}
