@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Class for handle of exception
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  *
  */
 @ControllerAdvice

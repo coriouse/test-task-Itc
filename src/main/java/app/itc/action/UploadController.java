@@ -17,6 +17,8 @@ import app.itc.exception.ValidationException;
 import app.itc.service.FigureHolderService;
 
 /**
+ * Controller Upload files with figures
+ * 
  * @author Sergey Ogarkov
  *
  */
@@ -31,8 +33,7 @@ public class UploadController {
 	/**
 	 * Upload file
 	 * 
-	 * @param request
-	 * @author ogarkov_sa
+	 * @author Sergey Ogarkov
 	 * @since 16.04.2014
 	 * @throws IOException
 	 * @throws ValidationException
@@ -41,7 +42,6 @@ public class UploadController {
 	public String upload(HttpServletRequest request) throws IOException, ValidationException {
 		LOGGER.info("Processing of the data file");
 		figureHolderService.addFiguresFromFile(request.getInputStream());
-
 		request.setAttribute("figures", figureHolderService.getFigures());
 		request.setAttribute("combobox", referenceListTypeFigures());
 		return "list";

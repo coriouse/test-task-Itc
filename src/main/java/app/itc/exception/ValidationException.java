@@ -3,7 +3,7 @@ package app.itc.exception;
 /**
  * Exception for validation of objects
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 15.04.2014
  *
  */

@@ -16,7 +16,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import app.itc.exception.ValidationException;
-
+/**
+ * Fields validator
+ * 
+ * @author Sergey Ogarkov
+ *
+ */
 public class FieldsValidator {
 
 	public static void validatePointFields(String xml) throws ValidationException {

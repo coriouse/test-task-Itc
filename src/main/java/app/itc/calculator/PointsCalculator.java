@@ -1,8 +1,6 @@
 package app.itc.calculator;
 
 import java.io.ByteArrayInputStream;
-import java.util.Arrays;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -17,7 +15,12 @@ import org.xml.sax.InputSource;
 import app.itc.core.CalculatorArea;
 import app.itc.exception.ValidationException;
 import app.itc.validator.FieldsValidator;
-
+/**
+ * Calculator of point figure
+ * 
+ * @author Sergey Ogarkov
+ *
+ */
 public class PointsCalculator implements CalculatorArea {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PointsCalculator.class);

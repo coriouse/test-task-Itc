@@ -3,16 +3,27 @@ package app.itc.core;
 import app.itc.exception.ValidationException;
 
 /**
- * Action under figure
+ * Calculator figures, take figure and  calculate area
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 14.04.2014
  *
  */
 public interface CalculatorArea {
 
+	/**
+	 * Method put figure for calculation 
+	 * 
+	 * @param figure
+	 * @throws ValidationException
+	 */
 	public void put(String figure) throws ValidationException;
 
+	/**
+	 * Calculate area figure
+	 * 
+	 * @return calculated area
+	 */
 	public Double calculate();
 
 }

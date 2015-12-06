@@ -1,9 +1,9 @@
 package app.itc.model;
 
 /**
- * Base class for all figures
+ * General class of figures
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 14.04.2014
  *
  */

@@ -1,13 +1,18 @@
 package app.itc.service;
 
 import app.itc.exception.ValidationException;
-
+/**
+ * Servis exporter figures to files csv, json 
+ * 
+ * @author Sergey Ogarkov
+ *
+ */
 public interface FiguresExporterService {
 
 	/**
 	 * Method return CSV file
 	 * 
-	 * @author ogarkov_sa
+	 * @author Sergey Ogarkov
 	 * @since 16.04.2014
 	 * @param figures
 	 * @return
@@ -18,7 +23,7 @@ public interface FiguresExporterService {
 	/**
 	 * Method return json file
 	 * 
-	 * @author ogarkov_sa
+	 * @author Sergey Ogarkov
 	 * @since 16.04.2014
 	 * @param figures
 	 * @return

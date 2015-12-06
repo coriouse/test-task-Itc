@@ -1,5 +1,9 @@
 package app.itc.util;
-
+/**
+ * 
+ * @author Sergey Ogarkov
+ *
+ */
 public class FigureUtil {
 
 	public static Integer getInteger(String[] parsedParams, Integer index) throws NumberFormatException {

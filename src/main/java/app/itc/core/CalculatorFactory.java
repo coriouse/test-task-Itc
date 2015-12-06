@@ -6,9 +6,9 @@ import app.itc.calculator.PointsCalculator;
 import app.itc.calculator.SquareCalculator;
 
 /**
- *
+ * Factory of calculators
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 14.04.2014
  */
 @Component

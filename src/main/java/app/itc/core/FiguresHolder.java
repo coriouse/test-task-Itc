@@ -6,7 +6,12 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
+/**
+ * Holder of figures
+ * 
+ * @author Sergey Ogarkov
+ *
+ */
 @Component
 public class FiguresHolder {
 

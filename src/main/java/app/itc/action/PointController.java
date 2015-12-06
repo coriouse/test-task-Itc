@@ -14,10 +14,9 @@ import app.itc.model.AjaxResponse;
 import app.itc.service.PointCalculatorService;
 
 /**
- * Web service restfull
+ * REST service of calculation point area
  * 
- * @author ogarkov_sa
- * @since 17.04.2014
+ * @author Sergey Ogarkov
  *
  */
 @Controller
@@ -29,16 +28,15 @@ public class PointController {
 	private PointCalculatorService pointCalculatorService;
 
 	/**
-	 * Method process service
+	 * REST distribute method of calculation area point
 	 * 
-	 * @author ogarkov_sa
-	 * @since 17.04.2014
+	 * @author Sergey Ogarkov
 	 * @param points
 	 * @param type
-	 * @return
 	 */
 	@RequestMapping(value = "/service", method = RequestMethod.POST)
-	public @ResponseBody AjaxResponse calculateAreaPoint(@RequestParam String points, @RequestParam CalculatorType type) {
+	public @ResponseBody AjaxResponse calculateAreaPoint(@RequestParam String points,
+			@RequestParam CalculatorType type) {
 		LOGGER.info("Method process service");
 		return pointCalculatorService.calculatePointArea(type, points);
 	}

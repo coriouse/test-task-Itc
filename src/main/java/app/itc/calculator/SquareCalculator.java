@@ -11,9 +11,9 @@ import app.itc.model.Figure;
 import app.itc.util.FigureUtil;
 
 /**
- * Class discribe Square
+ * Calculator of square figure
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 15.04.2014
  *
  */
@@ -26,7 +26,7 @@ public class SquareCalculator extends Figure implements CalculatorArea {
 	/**
 	 * fill object Square
 	 * 
-	 * @author ogarkov_sa
+	 * @author Sergey Ogarkov
 	 * @since 14.04.2014 example SQUARE; 4712; BUILDING 3; 0.0; 0.0; 0.0; 10.0;
 	 *        10.0; 10.0; 10.0; 0.0
 	 */

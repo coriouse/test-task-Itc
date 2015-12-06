@@ -1,9 +1,9 @@
 package app.itc.model;
 
 /**
- * Class for answer ajax and services
+ *Answer ajax
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 17.04.2014
  *
  */

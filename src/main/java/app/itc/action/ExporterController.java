@@ -18,6 +18,8 @@ import app.itc.exception.ValidationException;
 import app.itc.service.FiguresExporterService;
 
 /**
+ * Controller of exporting figures to csv, json
+ * 
  * @author Sergey Ogarkov
  *
  */
@@ -33,7 +35,6 @@ public class ExporterController {
 	 * 
 	 * @param type
 	 *            of figure
-	 * @return
 	 * @throws IOException
 	 * @throws ValidationException
 	 */
@@ -50,10 +51,7 @@ public class ExporterController {
 	 * Return json file
 	 * 
 	 * @param type
-	 *            of figure
-	 * @author ogarkov_sa
-	 * @since 17.04.2014
-	 * @return
+	 *            of figure	
 	 * @throws IOException
 	 * @throws ValidationException
 	 */

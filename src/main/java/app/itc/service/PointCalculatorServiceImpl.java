@@ -9,13 +9,6 @@ import app.itc.core.CalculatorFactory;
 import app.itc.exception.ValidationException;
 import app.itc.model.AjaxResponse;
 
-/**
- * 
- * 
- * @author ogarkov_sa
- * @since 17.04.2014
- *
- */
 @Service
 public class PointCalculatorServiceImpl implements PointCalculatorService {
 

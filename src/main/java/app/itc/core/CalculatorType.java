@@ -1,9 +1,9 @@
 package app.itc.core;
 
 /**
- * Type of figure
+ * Type of calculators of figure
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 14.04.2014
  */
 public enum CalculatorType {

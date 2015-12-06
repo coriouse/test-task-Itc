@@ -13,7 +13,7 @@ import app.itc.util.FigureUtil;
 /**
  * Class discribe Circle
  * 
- * @author ogarkov_sa
+ * @author Sergey Ogarkov
  * @since 14.04.2014
  *
  */
@@ -30,7 +30,7 @@ public class CircleCalculator extends Figure implements CalculatorArea {
 	/**
 	 * fill object Circle
 	 * 
-	 * @author ogarkov_sa
+	 * @author Sergey Ogarkov
 	 * @throws ValidationException
 	 * @since 14.04.2014 example CIRCLE; 4711; BUILDING 1; 7; 30; 50
 	 */

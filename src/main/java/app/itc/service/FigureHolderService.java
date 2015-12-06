@@ -5,7 +5,12 @@ import java.util.List;
 
 import app.itc.core.CalculatorArea;
 import app.itc.exception.ValidationException;
-
+/**
+ * Servise hold figures
+ * 
+ * @author Sergey Ogarkov
+ *
+ */
 public interface FigureHolderService {
 	
 	
